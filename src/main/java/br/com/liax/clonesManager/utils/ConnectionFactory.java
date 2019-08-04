@@ -10,6 +10,14 @@ import com.mchange.v2.c3p0.ComboPooledDataSource;
 
 public class ConnectionFactory {
 
+	private static final String MAX_POOL_SIZE_DEFAULT = "10";
+
+	private static final String MAX_POOL_SIZE = "max.pool.size";
+
+	private static final String MIN_POOL_SIZE_DEFAULT = "1";
+
+	private static final String MIN_POOL_SIZE = "min.pool.size";
+
 	private static final String DEFAULT_DRIVER = "com.mysql.cj.jdbc.Driver";
 
 	private static final String DEFAULT_AUTOCOMMIT = "false";
@@ -88,9 +96,9 @@ public class ConnectionFactory {
 		connectionPoolDatasource = new ComboPooledDataSource();
 		connectionPoolDatasource.setJdbcUrl(PROPERTIES.getProperty(URL, DEFAULT_URL));
 		connectionPoolDatasource.setDriverClass(PROPERTIES.getProperty(DRIVER, DEFAULT_DRIVER));
-		connectionPoolDatasource.setMinPoolSize(1);
+		connectionPoolDatasource.setMinPoolSize(Integer.valueOf(PROPERTIES.getProperty(MIN_POOL_SIZE, MIN_POOL_SIZE_DEFAULT)));
 		connectionPoolDatasource.setAcquireIncrement(1);
-		connectionPoolDatasource.setMaxPoolSize(10);
+		connectionPoolDatasource.setMaxPoolSize(Integer.valueOf(PROPERTIES.getProperty(MAX_POOL_SIZE, MAX_POOL_SIZE_DEFAULT)));
 		connectionPoolDatasource.setUser(PROPERTIES.getProperty(USERNAME, DEFAULT_USERNAME));
 		connectionPoolDatasource.setPassword(PROPERTIES.getProperty(PASSWORD, DEFAULT_PASSWORD));
 	}
