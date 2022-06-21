@@ -19,7 +19,7 @@
 		<jetty.port>8888</jetty.port>
 		<jetty.version>9.4.18.v20190429</jetty.version>
 		<maven.compile.version>3.8.1</maven.compile.version>
-		<mysql.version>8.0.16</mysql.version>
+		<mysql.version>8.0.28</mysql.version>
 		<javaee.version>8.0</javaee.version>
 		<maven.compiler.source>1.8</maven.compiler.source>
 		<maven.compiler.target>1.8</maven.compiler.target>
